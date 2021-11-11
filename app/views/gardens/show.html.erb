@@ -1,0 +1,6 @@
+<h1>Garden Show Page</h1>
+
+<h3>Garden Name: <%= @garden.name  %></h3>
+<p>Plants in this gardens plots (that take less than 100 days to harvest):
+<%= @garden.unique_plants.to_s.delete! '[]"' %>
+</p>

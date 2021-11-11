@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   delete '/plots/:id', to: 'plot_plants#destroy'
 
+  get '/gardens/:id', to: 'gardens#show'
+
 end
