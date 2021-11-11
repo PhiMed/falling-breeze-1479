@@ -1,9 +1,14 @@
 <h1>Plots Index</h1>
-<% @plots.each do |p| %>
-  <div id="plot-<%= p.id %>">
-  <%= "Plot Number:  #{p.id}"  %>
-  <% p.plants.each do |plant|  %>
+<% @plots.each do |plot| %>
+  <div id="plot-<%= plot.id %>">
+  <%= "Plot Number:  #{plot.id}"  %>
+  <% plot.plants.each do |plant|  %>
     <%= plant.name  %>
+    <br>
+    <%= form_with url: "/plots/#{plot.id}", method: :delete, local: true do |f| %>
+      <%= f.hidden_field :plant_id, value: plant.id %>
+      <%= f.submit "Remove this plant" %>
+    <% end %>
   <% end %>
-  </div>
+</div>
 <% end %>
